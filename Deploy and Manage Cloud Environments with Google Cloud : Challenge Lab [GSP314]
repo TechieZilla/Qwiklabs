@@ -39,7 +39,14 @@ gcloud compute instances create kraken-admin --network-interface="subnet=kraken-
 
      Open monitoring
      Create an alert
-     Configure the policy to email your email and set jumphost's cpu utilization to -> is above, 50%, for 1 min.
+     Configure the policy to email your email and set :-
+       Resource Type : VM Instance
+       Metric : CPU utilization
+       Filter : instance_name
+                Value : kraken-admin
+       Condition : is above
+       Threshold : 50%
+       For : 1 minute
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
