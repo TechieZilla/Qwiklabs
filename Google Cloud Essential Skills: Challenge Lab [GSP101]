@@ -6,7 +6,7 @@ Task 1 : Create a Compute Engine instance, add necessary firewall rules :-
 
 // Goto Compute Engine -> VM Instannces -> Create Instance.
    
-   Name : Apache
+   Name : apache
    Zone : us-central1-a
    Series : N1
    Boot Disk : Linux 9 (stretch)
