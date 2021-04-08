@@ -42,4 +42,4 @@ Task 6 : SSH to bastion host via IAP and juice-shop via bastion :-
 
 // In Compute Engine -> VM Instances page, click the SSH button for the bastion host. Then SSH to juice-shop by :-
 
-ssh [External IP address of juice-shop]
+ssh [Internal IP address of juice-shop]
