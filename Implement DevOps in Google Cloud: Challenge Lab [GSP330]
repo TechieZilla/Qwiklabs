@@ -31,7 +31,6 @@ Task - 2 : Check that Jenkins has deployed a development pipeline :-
    Kind : Google Service Account from metadata
 
 // OK.
-// Run in cloud Shell
 
 // On Jenkins page :-
 
