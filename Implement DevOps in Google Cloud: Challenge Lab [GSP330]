@@ -2,10 +2,6 @@ GSP330 : Implement DevOps in Google Cloud: Challenge Lab :-
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-Task - 1 : Check Jenkins pipeline has been configured :-
-
-// Run in cloud shell :-
-
 gcloud config set compute/zone us-east1-b
 git clone https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
 gcloud container clusters get-credentials jenkins-cd
@@ -17,40 +13,6 @@ export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/com
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 
-// Copy the output code (it is password of jenkins).
-
-// Web View -> Preview on port 8080
-   username : admin
-   password : {code output from previous command}
-
-----------------------------------------------------------------------------------------------------------------------------------------------
-
-Task - 2 : Check that Jenkins has deployed a development pipeline :-
-
-// Manage Jenkins -> Manage Credentials -> Jenkins -> Global Credentials -> Add Credentials.
-   Kind : Google Service Account from metadata
-
-// OK.
-
-// On Jenkins page :-
-
-// Delete the auto generated sample-app if there.
-
-// Dashboard -> New Item
-   Name : sample-app
-   -> Multibranch Pipeline -> OK
-
-// Branch Source : Git
-   Project Repository: https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
-   Credentials: qwiklabs service account
-   Save
-
-----------------------------------------------------------------------------------------------------------------------------------------------
-
-Task - 3 : Check that Jenkins has deployed a canary pipeline :-
-
-// In cloud shell :-
-
 cd sample-app
 kubectl create ns production
 kubectl apply -f k8s/production -n production
@@ -59,6 +21,10 @@ kubectl apply -f k8s/services -n production
 
 kubectl get svc
 kubectl get service gceme-frontend -n production
+
+// Branch Sources: Git
+   Project Repository: https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
+   Credentials: qwiklabs service account
 
 git init
 git config credential.helper gcloud.sh
@@ -69,14 +35,9 @@ git add .
 git commit -m "initial commit"
 git push origin master
 
-git checkout -b new-feature
+#save
 
-// Editor -> sample-app -> main.go
-   Set line 46, 81 to : const version string = "2.0.0"
-   
-   html.go -> line 37 -> change "blue" to "orange"
-   
-   File -> Save all
+git checkout -b new-feature
 
 git add Jenkinsfile html.go main.go
 git commit -m "Version 2.0.0"
@@ -95,12 +56,6 @@ git push origin master
 export FRONTEND_SERVICE_IP=$(kubectl get -o \
 jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
 while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
-
-// Press Ctrl + c when it starts showing 2.0.0.
-
-----------------------------------------------------------------------------------------------------------------------------------------------
-
-Task - 4 : Check that Jenkins has merged a canary pipeline with production :-
 
 kubectl get service gceme-frontend -n production
 
