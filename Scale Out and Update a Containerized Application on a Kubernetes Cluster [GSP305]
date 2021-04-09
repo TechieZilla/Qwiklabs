@@ -17,6 +17,6 @@ kubectl expose deployment echo-web --type=LoadBalancer --port 80 --target-port 8
 kubectl edit deploy echo-web
 
 // Change image version 'v1' to 'v2' by pressing "i"
-   Save by esc -> ":wq"
+   Save by esc -> Esc - > ":wq"
 
 kubectl scale deploy echo-web --replicas=2
