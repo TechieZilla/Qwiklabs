@@ -47,7 +47,7 @@ gcloud auth login
 gsutil cp result.json gs://YOUR_PROJECT-marking/task4-cnl.result
 
 
-# CREATE AN API KEY AND EXPORT AS "API_KEY" VARIABLE 
+// Create an API key and export as "API_KEY" variable. 
 
 nano request.json
 
