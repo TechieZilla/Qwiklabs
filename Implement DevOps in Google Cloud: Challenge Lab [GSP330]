@@ -2,64 +2,114 @@ GSP330 : Implement DevOps in Google Cloud: Challenge Lab :-
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
+Task - 1 : Check Jenkins pipeline has been configured :-
+
+// Navigate to Compute Engine > VM instances, SSH to kraken-jumphost.
+
 gcloud config set compute/zone us-east1-b
-git clone https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
-gcloud container clusters get-credentials jenkins-cd
-kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
+
+gcloud container clusters list
+kubectl cluster-info
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
-helm install cd stable/jenkins
+
+git clone https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes.git
+
+cd continuous-deployment-on-kubernetes
+
+helm install cd stable/jenkins -f jenkins/values.yaml --version 1.2.2 --wait
+
+kubectl get pods
+
+printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+
+// Copy the code output (it is password of Jenkins)
+
+gcloud container clusters get-credentials jenkins-cd --zone us-east1-b
+
 export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
-printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+
+// Open Jenkins by Web Preview -> Preview on port 8080.
+   Username : admin
+   Password : {Output code from previous command}
+
+// In SSH window, run (replace <YOUR-PROJECT-ID> with your GCP project ID) :-
+
+gcloud source repos clone sample-app --project=<YOUR-PROJECT-ID>
 
 cd sample-app
 kubectl create ns production
-kubectl apply -f k8s/production -n production
-kubectl apply -f k8s/canary -n production
-kubectl apply -f k8s/services -n production
 
-kubectl get svc
-kubectl get service gceme-frontend -n production
+// In Jenkins, click Manage Jenkins -> Manage Credentials -> Jenkins -> Global credentials (unrestricted)
+   -> Add Credentials
+   Kind : Google Service Account from metadata
+   OK
 
-// Branch Sources: Git
-   Project Repository: https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
-   Credentials: qwiklabs service account
+// Click Jenkins -> sample-app
 
-git init
-git config credential.helper gcloud.sh
-git remote add origin https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
-git config --global user.email "<user email>"
-git config --global user.name "<user name>"
-git add .
-git commit -m "initial commit"
-git push origin master
+// If no sample-app, click New Item to create the multibranch pipeline named "sample-app".
 
-#save
+// Click on sample-app -> Configure
+
+// Display Name : sample-app
+   Branch Sources : Git
+   Project Repository : https://source.developers.google.com/p/<YOUR-PROJECT-ID>/r/sample-app
+   Check Periodically if not otherwise run -> 1 minute.
+   Save.
+
+// Click sample-app -> master -> Console Output (This may take about % minutes to complete).
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Task - 2 : Check that Jenkins has deployed a development pipeline :-
+
+// In SSH window, Run :-
 
 git checkout -b new-feature
 
+// Open Cloud Shell Editor -> main.go
+// Update the version to "const version string = "2.0.0"".
+//Save
+
+// Open Cloud Shell Editor -> html.go
+// Update <div class="card blue"> to <div class="card orange">.
+
+// In SSH :-
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 git add Jenkinsfile html.go main.go
 git commit -m "Version 2.0.0"
 git push origin new-feature
 
-curl http://localhost:8001/api/v1/namespaces/new-feature/services/gceme-frontend:80/proxy/version
-kubectl get service gceme-frontend -n production  
+// Go to Jenkins user interface, click Scan Multibranch Pipeline Now.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Task - 3 : Check that Jenkins has deployed a canary pipeline :-
+
+// In SSH window :-
+
 git checkout -b canary
+git merge new-feature
 git push origin canary
-export FRONTEND_SERVICE_IP=$(kubectl get -o \
-jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+
+// Go to Jenkins user interface, click Scan Multibranch Pipeline Now.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Task - 4 : Check that Jenkins has merged a canary pipeline with production :-
+
+// In SSH window :-
+
 git checkout master
-git push origin master
-
-
-export FRONTEND_SERVICE_IP=$(kubectl get -o \
-jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
-while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
-
-kubectl get service gceme-frontend -n production
-
 git merge canary
 git push origin master
-export FRONTEND_SERVICE_IP=$(kubectl get -o \
-jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+
+// Go to Jenkins user interface, click Scan Multibranch Pipeline Now.
