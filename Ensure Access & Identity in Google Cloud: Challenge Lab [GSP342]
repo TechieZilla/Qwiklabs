@@ -48,6 +48,7 @@ gcloud container clusters create orca-test-cluster --num-nodes 1 --master-ipv4-c
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 Task 5 : Deploy an application to a private Kubernetes Engine cluster :-
+// SSH to orca-jumphost VM instance
 
 // Replace the project id :-
 
