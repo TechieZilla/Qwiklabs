@@ -2,114 +2,118 @@ GSP330 : Implement DevOps in Google Cloud: Challenge Lab :-
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-Task - 1 : Check Jenkins pipeline has been configured :-
-
-// Navigate to Compute Engine > VM instances, SSH to kraken-jumphost.
-
 gcloud config set compute/zone us-east1-b
 
-gcloud container clusters list
-kubectl cluster-info
+git clone https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
 
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
+gcloud container clusters get-credentials jenkins-cd
 
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-helm repo update
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
 
-git clone https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes.git
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 
-cd continuous-deployment-on-kubernetes
-
-helm install cd stable/jenkins -f jenkins/values.yaml --version 1.2.2 --wait
-
-kubectl get pods
+kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 
-// Copy the code output (it is password of Jenkins)
-
-gcloud container clusters get-credentials jenkins-cd --zone us-east1-b
-
-export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
-kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
-
-// Open Jenkins by Web Preview -> Preview on port 8080.
-   Username : admin
-   Password : {Output code from previous command}
-
-// In SSH window, run (replace <YOUR-PROJECT-ID> with your GCP project ID) :-
-
-gcloud source repos clone sample-app --project=<YOUR-PROJECT-ID>
+//To get to the Jenkins user interface, click on the Web Preview button in cloud shell, then click Preview on port 8080
+//You should now be able to log in with username admin and your auto-generated password.
 
 cd sample-app
+
 kubectl create ns production
 
-// In Jenkins, click Manage Jenkins -> Manage Credentials -> Jenkins -> Global credentials (unrestricted)
+kubectl apply -f k8s/production -n production
+
+kubectl apply -f k8s/canary -n production
+
+kubectl apply -f k8s/services -n production
+
+kubectl get svc
+
+kubectl get service gceme-frontend -n production
+
+//Check the IP in a new browser window, you will notice the color and the version of the app if associated with version 1.0.0.
+
+git init
+
+git config credential.helper gcloud.sh
+
+git remote add origin https://source.developers.google.com/p/$DEVSHELL_PROJECT_ID/r/sample-app
+
+git config --global user.email "[EMAIL_ADDRESS]"
+
+git config --global user.name "[USERNAME]"
+
+//Set the username and email address for your Git commits. Replace [EMAIL_ADDRESS] with your Git email address and [USERNAME] with your Git username
+
+git add .
+
+git commit -m "Initial commit"
+
+git push origin master
+
+// Jenkins -> Manage Jenkins -> Manage Credentials -> Jenkins -> Global Credentials
    -> Add Credentials
-   Kind : Google Service Account from metadata
+   Kind : Goosle Service Account from metadata
    OK
 
-// Click Jenkins -> sample-app
-
-// If no sample-app, click New Item to create the multibranch pipeline named "sample-app".
-
-// Click on sample-app -> Configure
-
-// Display Name : sample-app
-   Branch Sources : Git
-   Project Repository : https://source.developers.google.com/p/<YOUR-PROJECT-ID>/r/sample-app
-   Check Periodically if not otherwise run -> 1 minute.
-   Save.
-
-// Click sample-app -> master -> Console Output (This may take about % minutes to complete).
-
-----------------------------------------------------------------------------------------------------------------------------------------------
-
-Task - 2 : Check that Jenkins has deployed a development pipeline :-
-
-// In SSH window, Run :-
+// Jenkins -> New Item
+   Name : sample-app
+   Multibranch Pipeline
+   
+   Branch Source : Git
+   Project Repository : https://source.developers.google.com/p/[PROJECT_ID]/r/sample-app
+   Credentials : {project}
+   Scan Multibranch Pipeline Trigger , check periodically if not, interval = 1 minute.
 
 git checkout -b new-feature
 
-// Open Cloud Shell Editor -> main.go
-// Update the version to "const version string = "2.0.0"".
-//Save
+vi html.go  //Change the two instances of <div class="card blue"> to <div class="card orange">
 
-// Open Cloud Shell Editor -> html.go
-// Update <div class="card blue"> to <div class="card orange">.
+vi main.go  //Update the version to "const version string = "2.0.0" "
 
-// In SSH :-
-
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
 git add Jenkinsfile html.go main.go
+
 git commit -m "Version 2.0.0"
+
 git push origin new-feature
 
-// Go to Jenkins user interface, click Scan Multibranch Pipeline Now.
+//Wait for 1-2 mins and you will see the new-feature branch. Monitor the new-feature branch to be completed successfully. It will turn blue once succeeded.
 
-----------------------------------------------------------------------------------------------------------------------------------------------
+kubectl proxy &
+// If it stalls, press Ctrl + C to exit out.
 
-Task - 3 : Check that Jenkins has deployed a canary pipeline :-
+curl \
+http://localhost:8001/api/v1/namespaces/new-feature/services/gceme-frontend:80/proxy/version
 
-// In SSH window :-
+kubectl get service gceme-frontend -n production  
+//Open the IP in a new browser tab to check the application.
 
 git checkout -b canary
-git merge new-feature
+
 git push origin canary
+//Wait for 1-2 mins and you will see the canary branch. Monitor the canary branch to be completed successfully. It will turn blue once succeeded.
 
-// Go to Jenkins user interface, click Scan Multibranch Pipeline Now.
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
 
-----------------------------------------------------------------------------------------------------------------------------------------------
-
-Task - 4 : Check that Jenkins has merged a canary pipeline with production :-
-
-// In SSH window :-
+while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
+//If you keep seeing 1.0.0, try running the above commands again. Once you've verified that the above works, end the command with Ctrl + C.
 
 git checkout master
-git merge canary
-git push origin master
 
-// Go to Jenkins user interface, click Scan Multibranch Pipeline Now.
+git merge canary
+
+git push origin master
+//Wait for 1-2 mins and you will see the master branch. Monitor the master branch to be completed successfully. It will turn blue once succeeded.
+
+export FRONTEND_SERVICE_IP=$(kubectl get -o \
+jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+
+while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
+//Once again, if you see instances of 1.0.0 try running the above commands again. You can stop this command by pressing Ctrl + C.
+
+
+kubectl get service gceme-frontend -n production
+//Check the IP in a new browser window, you will notice that the color and the version of the app must be updated.
