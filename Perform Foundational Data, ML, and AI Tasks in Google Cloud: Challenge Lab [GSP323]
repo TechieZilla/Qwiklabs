@@ -4,6 +4,8 @@ GSP323 : Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge 
 
 // Task - 1 : Run a simple Dataflow job :-
 
+bq mk lab
+
 gsutil cp gs://cloud-training/gsp323/lab.csv .
 
 cat lab.csv
@@ -48,6 +50,8 @@ gsutil cp result.json gs://YOUR_PROJECT-marking/task4-cnl.result
 
 
 // Create an API key and export as "API_KEY" variable. 
+
+export API_KEY={Replace with API KEY}
 
 nano request.json
 
