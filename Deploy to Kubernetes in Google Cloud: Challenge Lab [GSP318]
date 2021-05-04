@@ -4,6 +4,7 @@
 
 Task - 1 : Create a Docker image and store the Dockerfile :-
 
+gcloud auth list
 gsutil cat gs://cloud-training/gsp318/marking/setup_marking.sh | bash
 gcloud source repos clone valkyrie-app
 cd valkyrie-app
