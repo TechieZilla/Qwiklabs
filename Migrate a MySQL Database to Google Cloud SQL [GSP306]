@@ -8,7 +8,7 @@ gcloud sql instances create wordpress --tier=db-n1-standard-1 --activation-polic
 
 gcloud sql users set-password --host % root --instance wordpress --password Password1*
 
-export ADDRESS=<external IP of blog vm/32>
+export ADDRESS=<external IP of blog vm>/32
 
 gcloud sql instances patch wordpress --authorized-networks $ADDRESS --quiet
 
