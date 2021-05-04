@@ -17,7 +17,7 @@ description="COVID 19 data"
 ) AS 
 SELECT * 
 FROM bigquery-public-data.covid19_govt_response.oxford_policy_tracker 
-WHERE alpha_3_code != 'USA' AND alpha_3_code != 'GBR'
+WHERE alpha_3_code != 'USA' AND alpha_3_code != 'GBR' AND alpha_3_code != 'BRA' AND alpha_3_code != 'CAN'
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -79,10 +79,10 @@ AND count.date = count1.date
 Task - 6 : Query missing data in population & country_area columns :-
 
 SELECT DISTINCT country_name
-FROM `<			>.ecommerce.sample`
+FROM `<PROJECT_ID>.ecommerce.sample`
 WHERE population is NULL 
 UNION ALL
 SELECT DISTINCT country_name
-FROM `<			>.ecommerce.sample`
+FROM `<PROJECT_ID>.ecommerce.sample`
 WHERE country_area IS NULL 
 ORDER BY country_name ASC
