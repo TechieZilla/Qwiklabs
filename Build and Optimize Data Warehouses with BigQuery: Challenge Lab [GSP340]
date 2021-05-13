@@ -39,10 +39,16 @@ avg_residential FLOAT64
 
 Task - 3 : Add country population data to the population column :-
 
-UPDATE `<PROJECT_ID>.ecommerce.sample` count
-SET count.population = count1.pop_data_2019
-FROM `bigquery-public-data.covid19_ecdc.covid_19_geographic_distribution_worldwide` count1
-WHERE count.date = count1.date AND count.alpha_3_code=count1.country_territory_code
+UPDATE
+    ecommerce.sample t0
+SET
+    population = t2.pop_data_2019
+FROM 
+    ecommerce.sample t1
+    LEFT JOIN 
+    (SELECT DISTINCT country_territory_code, pop_data_2019 FROM `bigquery-public-data.covid19_ecdc.covid_19_geographic_distribution_worldwide`) AS t2
+     ON t1.alpha_3_code = t2.country_territory_code
+WHERE CONCAT(t0.country_name, t0.date) = CONCAT(t1.country_name, t1.date)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
