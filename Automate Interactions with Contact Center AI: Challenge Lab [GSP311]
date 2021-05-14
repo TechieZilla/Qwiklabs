@@ -3,6 +3,7 @@ GSP311 : Automate Interactions with Contact Center AI: Challenge Lab :-
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 export PROJECT=$(gcloud info --format='value(config.project)')
+git clone https://github.com/GoogleCloudPlatform/dataflow-contact-center-speech-analysis.git
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
