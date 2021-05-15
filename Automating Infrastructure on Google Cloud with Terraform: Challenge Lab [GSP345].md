@@ -4,7 +4,7 @@
 
 ### Task - 1 : Create the configuration files :-
 
-- Make the empty files and directories in Cloud Shell or the Cloud Shell Editor.
+Make the empty files and directories in Cloud Shell or the Cloud Shell Editor.
 ```yaml
 touch main.tf
 touch variables.tf
