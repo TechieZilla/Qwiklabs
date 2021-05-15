@@ -2,10 +2,27 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-### Task 1. Create the configuration files
+### Task - 1 : Create the configuration files :-
 
 - Make the empty files and directories in Cloud Shell or the Cloud Shell Editor.
-
+```yaml
+touch main.tf
+touch variables.tf
+mkdir modules
+cd modules
+mkdir instances
+cd instances
+touch instances.tf
+touch outputs.tf
+touch variables.tf
+cd ..
+mkdir storage
+cd storage
+touch storage.tf
+touch outputs.tf
+touch variables.tf
+cd
+```
 Add the following to the each __variables.tf__ file, and fill in the GCP Project ID:
 ```yaml
 variable "region" {
@@ -22,7 +39,7 @@ variable "project_id" {
 ```
 
 
-Add the following to the **main.tf** file:
+Add the following to the **main.tf** file :
 ```yaml
 terraform {
   required_providers {
@@ -49,7 +66,7 @@ module "instances" {
 ```
 Run `terraform init` in Cloud Shell in the root directory to initialize terraform.
 
-### Task 2. Import infrastructure
+### Task - 2 : Import infrastructure :-
 Navigate to Compute Engine > VM Instances. Click on **tf-instance-1**. Copy the Instance ID down somewhere to use later.
 
 Navigate to Compute Engine > VM Instances. Click on **tf-instance-2**. Copy the Instance ID down somewhere to use later. 
@@ -101,7 +118,7 @@ The two instances have now been imported into your terraform configuration. You 
 terraform plan
 terraform apply
 ```
-### Task 3. Configure a remote backend
+### Task - 3 : Configure a remote backend :-
 Add the following code to the **modules/storage/storage.tf** file:
 ```yaml
 resource "google_storage_bucket" "storage-bucket" {
@@ -142,7 +159,7 @@ Run the following to initialize the remote backend. Type **yes** at the prompt.
 terraform init
 ```
 
-### Task 4. Modify and update infrastructure
+### Task - 4 : Modify and update infrastructure :-
 Navigate to modules/instances/instance.tf. Replace the entire contents of the file with the following:
 ```yaml
 resource "google_compute_instance" "tf-instance-1" {
@@ -201,7 +218,7 @@ Run the following commands to initialize the module and create/update the instan
 terraform init
 terraform apply
 ```
-### Task 5. Taint and destroy resources
+### Task - 5 : Taint and destroy resources :-
 Taint the **tf-instance-3** resource by running the following command:
 ```bash
 terraform taint module.instances.google_compute_instance.tf-instance-3
@@ -235,7 +252,7 @@ Run the following commands to apply the changes. Type **yes** at the prompt.
 terraform apply
 ```
 
-### Task 6. Use a module from the Registry
+### Task - 6 : Use a module from the Registry :-
 Copy and paste the following into the main.tf file:
 ```yaml
 module "vpc" {
@@ -312,7 +329,7 @@ terraform init
 terraform apply
 ```
 
-### Task 7. Configure a firewall
+### Task - 7 : Configure a firewall :-
 Add the following resource to the **main.tf** file and fill in the GCP Project ID:
 ```yaml
 resource "google_compute_firewall" "tf-firewall" {
