@@ -50,7 +50,8 @@ module "instances" {
 Run `terraform init` in Cloud Shell in the root directory to initialize terraform.
 
 ### Task 2. Import infrastructure
-Navigate to Compute Engine > VM Instances. Click on **tf-instance-1**. Copy the Instance ID down somewhere to use later. 
+Navigate to Compute Engine > VM Instances. Click on **tf-instance-1**. Copy the Instance ID down somewhere to use later.
+
 Navigate to Compute Engine > VM Instances. Click on **tf-instance-2**. Copy the Instance ID down somewhere to use later. 
 
 Next, navigate to **modules/instances/instances.tf**. Copy the following configuration into the file:
