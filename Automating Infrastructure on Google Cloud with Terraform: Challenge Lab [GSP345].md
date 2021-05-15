@@ -5,6 +5,7 @@
 ### Task 1. Create the configuration files
 
 - Make the empty files and directories in Cloud Shell or the Cloud Shell Editor.
+
 Add the following to the each __variables.tf__ file, and fill in the GCP Project ID:
 ```yaml
 variable "region" {
