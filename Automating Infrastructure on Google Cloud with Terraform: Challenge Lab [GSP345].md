@@ -88,11 +88,11 @@ resource "google_compute_instance" "tf-instance-2" {
 ```
 To import the **first** instance, use the following command, using the Instance ID for **tf-instance-1** you copied down earlier.
 ```bash
-terraform import module.instances.google_compute_instance.tf-instance-1 tf-instance-1
+terraform import module.instances.google_compute_instance.tf-instance-1 <Instance ID - 1>
 ```
 To import the second instance, use the following command, using the Instance ID for **tf-instance-2** you copied down earlier.
 ```bash
-terraform import module.instances.google_compute_instance.tf-instance-2 tf-instance-2
+terraform import module.instances.google_compute_instance.tf-instance-2 <Instance ID - 2>
 ```
 The two instances have now been imported into your terraform configuration. You can now optionally run the commands to update the state of Terraform. Type yes at the dialogue after you run the apply command to accept the state changes.
 ```bash
