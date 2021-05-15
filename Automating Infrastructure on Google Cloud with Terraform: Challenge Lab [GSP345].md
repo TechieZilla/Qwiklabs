@@ -257,7 +257,7 @@ Copy and paste the following into the main.tf file:
 ```yaml
 module "vpc" {
     source  = "terraform-google-modules/network/google"
-    version = "~> 2.5.0"
+    version = "~> 3.2.2"
 
     project_id   = var.project_id
     network_name = "terraform-vpc"
@@ -344,6 +344,11 @@ resource "google_compute_firewall" "tf-firewall" {
   source_tags = ["web"]
   source_ranges = ["0.0.0.0/0"]
 }
+```
+Run the following commands to configure the firewall. Type **yes** at the prompt.
+```bash
+terraform init
+terraform apply
 ```
 
 ### Congratulations!
