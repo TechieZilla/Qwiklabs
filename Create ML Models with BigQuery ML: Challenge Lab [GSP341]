@@ -24,6 +24,7 @@ SELECT
     EXTRACT(HOUR FROM start_time) AS start_hour,
     EXTRACT(DAYOFWEEK FROM start_time) AS day_of_week,
     duration_minutes,
+    address as location
 FROM
     `bigquery-public-data.austin_bikeshare.bikeshare_trips` AS trips
 JOIN
