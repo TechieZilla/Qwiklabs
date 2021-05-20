@@ -1,6 +1,6 @@
 GSP329 : Integrate with Machine Learning APIs: Challenge Lab :-
 
-YouTube : https://bit.ly/3eV0e7Y
+YouTube Video Solution : https://bit.ly/3eV0e7Y
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -241,3 +241,9 @@ python3 analyze-images.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 // Navigation Menu -> BigQuery, Run :-
 
 SELECT locale,COUNT(locale) as lcount FROM image_classification_dataset.image_text_detail GROUP BY locale ORDER BY lcount DESC
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3eV0e7Y
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
