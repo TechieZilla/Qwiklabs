@@ -1,5 +1,7 @@
 GSP340 : Build and Optimize Data Warehouses with BigQuery: Challenge Lab :-
 
+Follow on Twitter @techiezilla , Instagram @techiezilla.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 # Create a dataset :-
@@ -86,3 +88,7 @@ SELECT DISTINCT country_name
 FROM `<PROJECT_ID>.ecommerce.sample`
 WHERE country_area IS NULL 
 ORDER BY country_name ASC
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
