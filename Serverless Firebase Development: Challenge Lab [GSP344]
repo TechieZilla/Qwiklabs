@@ -1,6 +1,6 @@
 GSP344 : Serverless Firebase Development: Challenge Lab :-
 
-YouTube : https://youtu.be/U3QSbegY-YQ
+YouTube Video Solution : https://youtu.be/U3QSbegY-YQ
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -69,3 +69,9 @@ gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-production:0.1
 gcloud beta run deploy frontend-production-service --image gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-production:0.1
 
 // Choose 1 and us-central1
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/U3QSbegY-YQ
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
