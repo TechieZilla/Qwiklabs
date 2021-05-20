@@ -1,6 +1,6 @@
 GSP305 : Scale Out and Update a Containerized Application on a Kubernetes Cluster :-
 
-YouTube : https://youtu.be/T5l5Y-YInSc
+YouTube Video Solution : https://youtu.be/T5l5Y-YInSc
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -24,3 +24,9 @@ kubectl edit deploy echo-web
    Save by esc -> Esc - > ":wq"
 
 kubectl scale deploy echo-web --replicas=2
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/T5l5Y-YInSc
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
