@@ -1,6 +1,6 @@
 GSP322 : Build and Secure Networks in Google Cloud: Challenge Lab :-
 
-YouTube : https://bit.ly/3nMGKXu
+YouTube Video Solution : https://bit.ly/3nMGKXu
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -47,3 +47,10 @@ Task 6 : SSH to bastion host via IAP and juice-shop via bastion :-
 // In Compute Engine -> VM Instances page, click the SSH button for the bastion host. Then SSH to juice-shop by :-
 
 ssh [Internal IP address of juice-shop]
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3nMGKXu
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
+
