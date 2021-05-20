@@ -92,3 +92,4 @@ select * from (SELECT entities.name,entities.type, COUNT(entities.name) AS count
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
+Follow on Twitter @techiezilla , Instagram @techiezilla.
