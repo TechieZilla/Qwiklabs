@@ -1,4 +1,4 @@
-### GSP311 : Automate Interactions with Contact Center AI: Challenge Lab :-
+### GSP311: Automate Interactions with Contact Center AI: Challenge Lab :-
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
