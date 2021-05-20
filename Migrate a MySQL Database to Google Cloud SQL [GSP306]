@@ -1,6 +1,6 @@
 GSP306 : Migrate a MySQL Database to Google Cloud SQL :-
 
-YouTube : https://youtu.be/RRwcT2vCj1w
+YouTube Video Solution : https://youtu.be/RRwcT2vCj1w
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -39,3 +39,9 @@ sudo service apache2 restart
 cd /var/www/html/wordpress
 
 sudo nano wp-config.php
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/RRwcT2vCj1w
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
