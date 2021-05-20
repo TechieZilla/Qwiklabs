@@ -1,6 +1,6 @@
 GSP787 : Insights from Data with BigQuery: Challenge Lab :-
 
-YouTube : https://bit.ly/3vL79Yt
+YouTube Video Solution : https://bit.ly/3vL79Yt
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -333,3 +333,9 @@ WHERE
   AND country_name ="United States of America"
 
 GROUP BY date
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3vL79Yt
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
