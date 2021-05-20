@@ -1,11 +1,10 @@
 GSP302 : Configure a Firewall and a Startup Script with Deployment Manager :-
 
-YouTube : https://youtu.be/hRjpgVVIcpA
+YouTube Video Solution : https://youtu.be/hRjpgVVIcpA
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
-
 
 mkdir deployment_manager
 cd deployment_manager
@@ -76,3 +75,9 @@ resources:
     zone: us-central1-a
 
 gcloud deployment-manager deployments create test --config=qwiklabs.yaml
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/hRjpgVVIcpA
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
