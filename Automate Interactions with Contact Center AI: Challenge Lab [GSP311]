@@ -1,5 +1,7 @@
 GSP311 : Automate Interactions with Contact Center AI: Challenge Lab :-
 
+Follow on Twitter @techiezilla , Instagram @techiezilla.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 export PROJECT=$(gcloud info --format='value(config.project)')
@@ -86,3 +88,7 @@ select * from (SELECT entities.name,entities.type, COUNT(entities.name) AS count
 // Click “Save Query Results” and select “BigQuery table” option.
 // Enter a name for a new table and save.
 // Go to the new table in which result is saved and then Click on Export > Scan with DLP
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
