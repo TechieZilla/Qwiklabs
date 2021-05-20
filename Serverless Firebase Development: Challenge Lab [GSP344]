@@ -1,5 +1,9 @@
 GSP344 : Serverless Firebase Development: Challenge Lab :-
 
+YouTube : https://youtu.be/U3QSbegY-YQ
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 gcloud config set project $(gcloud projects list --format='value(PROJECT_ID)' --filter='qwiklabs-gcp')
