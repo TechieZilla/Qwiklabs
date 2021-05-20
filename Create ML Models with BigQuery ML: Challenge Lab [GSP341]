@@ -1,6 +1,6 @@
 GSP341 : Create ML Models with BigQuery ML: Challenge Lab :-
 
-YouTube : https://bit.ly/3gWVPnF
+YouTube Video Solution : https://bit.ly/3gWVPnF
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -137,3 +137,9 @@ WHERE
   EXTRACT(YEAR FROM start_time) = 2019
   AND subscriber_type = 'Single Trip'
   AND start_station_name = '21st & Speedway @PCL'))
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3gWVPnF
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
