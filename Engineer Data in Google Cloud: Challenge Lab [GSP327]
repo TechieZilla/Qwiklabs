@@ -1,6 +1,6 @@
 GSP327 : Engineer Data in Google Cloud: Challenge Lab :-
 
-YouTube : https://bit.ly/3eOZx05
+YouTube Video Solution : https://bit.ly/3eOZx05
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -60,3 +60,9 @@ CREATE OR REPLACE TABLE taxirides.2015_fare_amount_predictions
 SELECT * FROM ML.PREDICT(MODEL taxirides.fare_model,(
   SELECT * FROM taxirides.report_prediction_data)
 )
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3eOZx05
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
