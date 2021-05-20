@@ -1,6 +1,6 @@
 GSP343 : Optimize Costs for Google Kubernetes Engine: Challenge Lab :-
 
-YouTube : https://youtu.be/ryd0JWHuxoY
+YouTube Video Solution : https://youtu.be/ryd0JWHuxoY
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -81,3 +81,9 @@ gcloud beta container clusters update onlineboutique-cluster \
 
 kubectl exec $(kubectl get pod --namespace=dev | grep 'loadgenerator' | cut -f1 -d ' ') \
    -it --namespace=dev -- bash -c "export USERS=8000; sh ./loadgen.sh"
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/ryd0JWHuxoY
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
