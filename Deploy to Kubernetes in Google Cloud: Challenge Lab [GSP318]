@@ -1,6 +1,6 @@
 GSP318 : Deploy to Kubernetes in Google Cloud: Challenge Lab :-
 
-YouTube : https://bit.ly/3eApoK4
+YouTube Video Solution : https://bit.ly/3eApoK4
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -111,3 +111,9 @@ git commit -m "built pipeline init"
 git push 
 
 // In  Jenkins click Build and wait to get score.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3eApoK4
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
