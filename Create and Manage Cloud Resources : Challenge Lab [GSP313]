@@ -1,6 +1,6 @@
 GSP313 : Create and Manage Cloud Resources: Challenge Lab :-
 
-YouTube : https://bit.ly/3vEgCAz
+YouTube Video Solution : https://bit.ly/3vEgCAz
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -85,3 +85,9 @@ gcloud compute forwarding-rules create http-content-rule \
         --target-http-proxy http-lb-proxy \
         --ports 80
 gcloud compute forwarding-rules list
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3vEgCAz
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
