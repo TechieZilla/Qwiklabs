@@ -3,7 +3,7 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 
-YouTube : https://youtu.be/0v-46Fpp6P4
+YouTube Video Solution : https://youtu.be/0v-46Fpp6P4
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -358,3 +358,7 @@ terraform apply
 ```
 
 ### Congratulations!
+
+YouTube Video Solution : https://youtu.be/0v-46Fpp6P4
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
