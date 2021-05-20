@@ -1,6 +1,6 @@
 GSP328 : Serverless Cloud Run Development: Challenge Lab :-
 
-YouTube : https://youtu.be/7xUfuYe-B4Y
+YouTube Video Solution : https://youtu.be/7xUfuYe-B4Y
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -109,3 +109,9 @@ gcloud builds submit --tag gcr.io/${PROJECT_ID}/frontend-prod:0.1
 gcloud run deploy public-billing-service --image gcr.io/${PROJECT_ID}/frontend-prod:0.1
 
 gcloud run services list
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/7xUfuYe-B4Y
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
