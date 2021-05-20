@@ -1,6 +1,6 @@
 GSP323 : Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab :-
 
-YouTube : https://bit.ly/3eV0i7V
+YouTube Video Solution : https://bit.ly/3eV0i7V
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -108,3 +108,9 @@ curl -s -H 'Content-Type: application/json' -H "Authorization: Bearer $ACCESS_TO
 
 
 gsutil cp result1.json gs://YOUR_PROJECT-marking/task4-gvi.result
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3eV0i7V
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
