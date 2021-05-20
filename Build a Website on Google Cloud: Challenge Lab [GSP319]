@@ -1,6 +1,6 @@
 GSP319 : Build a Website on Google Cloud: Challenge Lab :-
 
-YouTube : https://bit.ly/3tevNyY
+YouTube Video Solution : https://bit.ly/3tevNyY
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -71,3 +71,9 @@ Task 7: Deploy the Frontend microservice :-
 kubectl create deployment frontend --image=gcr.io/${GOOGLE_CLOUD_PROJECT}/frontend:1.0.0
 
 kubectl expose deployment frontend --type=LoadBalancer --port 80 --target-port 8080
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3tevNyY
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
