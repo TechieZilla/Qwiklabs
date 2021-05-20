@@ -1,6 +1,6 @@
 GSP665 : Exploring the Public Cryptocurrency Datasets Available in BigQuery :-
 
-YouTube : https://youtu.be/eY_W1Prv_G8
+YouTube Video Solution : https://youtu.be/eY_W1Prv_G8
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -38,3 +38,9 @@ SELECT
 sum(value) as balance
 FROM double_entry_book
 where address = "1XPTgDRhN8RFnzniWCddobD9iKZatrvH4"
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/eY_W1Prv_G8
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
