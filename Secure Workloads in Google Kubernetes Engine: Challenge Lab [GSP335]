@@ -1,5 +1,7 @@
 GSP335 : Secure Workloads in Google Kubernetes Engine: Challenge Lab :-
 
+Follow on Twitter @techiezilla , Instagram @techiezilla.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 gsutil -m cp gs://cloud-training/gsp335/* .
@@ -159,3 +161,7 @@ nano psp-restrictive.yaml
 // Save the changes.
 
 kubectl apply
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
