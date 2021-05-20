@@ -6,4 +6,6 @@ We have collaborated with CourseIntern Team for code snippets of the labs.
 
 Please Go To : [GSP341: Create ML Models with BigQuery ML](https://www.courseintern.com/post/qwiklabs/challenge-labs/gsp341-create-ml-models-with-bigquery-ml/)
 
+YouTube Video Solution : [Click Here](https://bit.ly/3gWVPnF)
+
 ----------------------------------------------------------------------------------------------------------------------------------------------
