@@ -1,6 +1,6 @@
 GSP330 : Implement DevOps in Google Cloud: Challenge Lab :-
 
-YouTube : https://bit.ly/33sflAJ
+YouTube Video Solution : https://bit.ly/33sflAJ
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -84,3 +84,9 @@ git merge canary
 git push origin master
 export FRONTEND_SERVICE_IP=$(kubectl get -o \
 jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/33sflAJ
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
