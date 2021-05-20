@@ -1,6 +1,6 @@
 GSP342 : Ensure Access & Identity in Google Cloud: Challenge Lab :-
 
-YouTube : https://bit.ly/3bhYbdt
+YouTube Video Solution : https://bit.ly/3bhYbdt
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -59,3 +59,9 @@ Task 5 : Deploy an application to a private Kubernetes Engine cluster :-
 gcloud container clusters get-credentials orca-test-cluster --internal-ip --zone us-east1-b --project <Project ID>
 
 kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://bit.ly/3bhYbdt
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
