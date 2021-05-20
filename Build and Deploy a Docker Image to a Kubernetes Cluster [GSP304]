@@ -1,6 +1,6 @@
 GSP304 : Build and Deploy a Docker Image to a Kubernetes Cluster :-
 
-YouTube : https://youtu.be/XLTW8Yeq8xM
+YouTube Video Solution : https://youtu.be/XLTW8Yeq8xM
 
 Follow on Twitter @techiezilla , Instagram @techiezilla.
 
@@ -35,3 +35,9 @@ kubectl expose deployment echo-web --type=LoadBalancer --port=80 --target-port=8
 // Extract Kubernetes services
 
 kubectl get svc
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+YouTube Video Solution : https://youtu.be/XLTW8Yeq8xM
+
+Follow on Twitter @techiezilla , Instagram @techiezilla.
