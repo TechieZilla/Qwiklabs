@@ -6,8 +6,10 @@ Follow on Twitter @techiezilla , Instagram @techiezilla.
 
 
 ### Task - 1 : Create Looks :-
+----------------------------------------------------------------------------------------------------------------------------------------------
 
-Look - 1 : Most Heliports by State :-
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Look - 1 : Most Heliports by State :-
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 Click Airports Explore.
@@ -17,7 +19,8 @@ In the data section, make the sure Airports Count column is in descending order.
 
 Save the visualization as a Look.
 
-Look - 2 : Facility Type Breakdown :-
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Look - 2 : Facility Type Breakdown :-
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 Click Airports Explore.
@@ -27,7 +30,8 @@ In the data section, make the sure Airports Facility Type column is in descendin
 
 Save the visualization as a Look.
 
-Look - 3 : Percentage Cancelled :-
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Look - 3 : Percentage Cancelled :-
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 Click Flights Explore.
@@ -45,6 +49,7 @@ In the data section, make the sure Percent Cancelled column is in descending ord
 Save the visualization as a Look.
 
 ### Task - 2 : Merge Results :-
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 Click Flights Explore.
 - Click Aircraft Origin > City, Aircraft Origin > State Dimensions, Aircraft Origin > Code, and Flights > Count. Set the Row Limit to 10. Click Run.
@@ -60,6 +65,7 @@ Click Save. Confirm the merge, then click Run. Click visualization and choose a 
 Click the gear icon on the top right and then click Save to Dashboard.
 
 ### Task - 3 : Save Looks to a Dashboard :-
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 Click the Looker Home page in the top left corner. On the left, click Developer's Folder and you will see the Looks you created.
 
