@@ -7,7 +7,7 @@ Follow on Twitter @techiezilla , Instagram @techiezilla.
 
 ### Task - 1 : Create Looks :-
 
-## Look - 1 : Most Heliports by State :-
+Look - 1 : Most Heliports by State :-
 
 Click Airports Explore.
 - Click City and State Dimensions. Click Count Measure. Hover over the Facility Type, click the Filter By Field button (three lines), and set the Airports Facility type to is equal to HELIPORT.
@@ -16,7 +16,7 @@ In the data section, make the sure Airports Count column is in descending order.
 
 Save the visualization as a Look.
 
-## Look - 2 : Facility Type Breakdown :-
+Look - 2 : Facility Type Breakdown :-
 
 Click Airports Explore.
 - Click State Dimensions. Click Count Measure. Hover over the Facility Type, click the Pivot button. Set the row limit to 10.
@@ -25,7 +25,7 @@ In the data section, make the sure Airports Facility Type column is in descendin
 
 Save the visualization as a Look.
 
-## Look - 3 : Percentage Cancelled :-
+Look - 3 : Percentage Cancelled :-
 
 Click Flights Explore.
 - Click Aircraft Origin > City and Aircraft Origin > State Dimensions. - Under Flights Details, click Cancelled Count Measure.
