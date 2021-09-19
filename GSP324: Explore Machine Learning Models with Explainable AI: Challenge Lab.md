@@ -24,7 +24,7 @@ limited_model.fit(limited_train_data, limited_train_labels, epochs=10, batch_siz
 
 
 
-# Fill out this information:
+### Fill out the info :-
 
 GCP_PROJECT = '# TODO'
 MODEL_BUCKET = 'gs:// #TODO'
